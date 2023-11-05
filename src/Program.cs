@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Qtl.BrightnessController;
 using Qtl.Keylogging.HotKeys;
-using Qtl.RawWacom;
+using Qtl.Snippets;
 
 const int VK_F2 = 0x71;
 const int VK_F3 = 0x72;

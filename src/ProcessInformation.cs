@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Qtl.RawWacom;
+namespace Qtl.Snippets;
 
 internal readonly partial struct ProcessInformation : IDisposable
 {
