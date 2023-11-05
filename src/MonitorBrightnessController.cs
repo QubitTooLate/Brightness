@@ -22,6 +22,8 @@ public static unsafe partial class MonitorBrightnessController
 
 	public static void SetPrimaryMonitorBrightness(float value)
 	{
+		if (value is < 0.0f or > 1.0f) { throw new ArgumentException("Value out of range.", nameof(value)); }
+
 		var primaryMonitorHandle = GetPrimaryMonitorHandle();
 		var physicalPrimaryMonitorHandle = GetPhysicalMonitorHandle(primaryMonitorHandle);
 
@@ -38,7 +40,7 @@ public static unsafe partial class MonitorBrightnessController
 	private static IntPtr GetPrimaryMonitorHandle()
 	{
 		const int MONITOR_DEFAULTTOPRIMARY = 1;
-		var point = default(POINT);
+		var point = new POINT { X = int.MaxValue, Y = int.MaxValue };
 		return MonitorFromPoint(ref point, MONITOR_DEFAULTTOPRIMARY);
 	}
 
@@ -54,6 +56,8 @@ public static unsafe partial class MonitorBrightnessController
 
 	private static void SetMonitorBrightness(IntPtr physicalMonitorHandle, float value)
 	{
+		if (value is < 0.0f or > 1.0f) { throw new ArgumentException("Value out of range.", nameof(value)); }
+
 		if (!GetMonitorBrightness(physicalMonitorHandle, out var min, out var current, out var max))
 		{
 			ThrowForLastError();
