@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using Qtl.BrightnessController;
 using Qtl.Keylogging.HotKeys;
+using Qtl.RawWacom;
 
 const int VK_F2 = 0x71;
 const int VK_F3 = 0x72;
@@ -14,6 +15,9 @@ if (!isSingleInstance)
 {
 	return;
 }
+
+using var processInformation = new ProcessInformation();
+_ = processInformation.SetEfficiencyMode();
 
 var brightness = 0;
 SetBrightness(brightness);
