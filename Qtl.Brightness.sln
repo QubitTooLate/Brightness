@@ -3,24 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qtl.Keylogging", "src\Qtl.Keylogging.csproj", "{08C0359F-D0E3-4C79-BB81-4A5D59E552AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qtl.BrightnessController", "src\Qtl.BrightnessController.csproj", "{59E40E61-760B-4B4A-A18F-A44EEB35211E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qtl.Samples.ConsoleApp", "samples\Console\Qtl.Samples.ConsoleApp.csproj", "{EFFD11F9-16EB-4FB0-A651-88BE74597010}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Qtl.Keylogging", "src\submodules\Keylogging\src\Qtl.Keylogging.csproj", "{3E4214DB-622A-4178-8EAE-AC38183699D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{08C0359F-D0E3-4C79-BB81-4A5D59E552AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08C0359F-D0E3-4C79-BB81-4A5D59E552AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08C0359F-D0E3-4C79-BB81-4A5D59E552AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08C0359F-D0E3-4C79-BB81-4A5D59E552AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFFD11F9-16EB-4FB0-A651-88BE74597010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFFD11F9-16EB-4FB0-A651-88BE74597010}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFFD11F9-16EB-4FB0-A651-88BE74597010}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFFD11F9-16EB-4FB0-A651-88BE74597010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59E40E61-760B-4B4A-A18F-A44EEB35211E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{59E40E61-760B-4B4A-A18F-A44EEB35211E}.Debug|x64.Build.0 = Debug|Any CPU
+		{59E40E61-760B-4B4A-A18F-A44EEB35211E}.Release|x64.ActiveCfg = Release|Any CPU
+		{59E40E61-760B-4B4A-A18F-A44EEB35211E}.Release|x64.Build.0 = Release|Any CPU
+		{3E4214DB-622A-4178-8EAE-AC38183699D0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3E4214DB-622A-4178-8EAE-AC38183699D0}.Debug|x64.Build.0 = Debug|Any CPU
+		{3E4214DB-622A-4178-8EAE-AC38183699D0}.Release|x64.ActiveCfg = Release|Any CPU
+		{3E4214DB-622A-4178-8EAE-AC38183699D0}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
