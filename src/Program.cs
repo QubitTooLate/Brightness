@@ -1,17 +1,25 @@
-﻿using System;
+﻿using System.Threading;
 using Qtl.BrightnessController;
 using Qtl.Keylogging.HotKeys;
 
 const int VK_F2 = 0x71;
 const int VK_F3 = 0x72;
+const int VK_F4 = 0x73;
 
 const int BRIGHTNESS_STEP = 10;
 const int MAX_BRIGHNESS = 100;
+
+using var singletonMutex = new Mutex(true, "F8C61D2A-BAA9-43E3-818A-5D27863DC260", out var isSingleInstance);
+if (!isSingleInstance)
+{
+	return;
+}
 
 var brightness = 0;
 SetBrightness(brightness);
 
 using var hotKeys = HotKeyTask.StartNew();
+using var exitApplicationEvent = new ManualResetEvent(false);
 
 hotKeys.AddHotKey(HotKeyModifiers.Win, VK_F2, hotKey =>
 {
@@ -19,7 +27,6 @@ hotKeys.AddHotKey(HotKeyModifiers.Win, VK_F2, hotKey =>
 	{
 		brightness -= BRIGHTNESS_STEP;
 		SetBrightness(brightness);
-		WriteBrightness(brightness);
 	}
 });
 
@@ -29,16 +36,18 @@ hotKeys.AddHotKey(HotKeyModifiers.Win, VK_F3, hotKey =>
 	{
 		brightness += BRIGHTNESS_STEP;
 		SetBrightness(brightness);
-		WriteBrightness(brightness);
 	}
 });
 
-Console.ReadKey();
+hotKeys.AddHotKey(HotKeyModifiers.Win, VK_F4, hotKey =>
+{
+	_ = exitApplicationEvent.Set();
+});
+
+_ = exitApplicationEvent.WaitOne();
 
 await hotKeys.StopAsync();
 
 return;
 
 static void SetBrightness(int brightness) => MonitorBrightnessController.SetPrimaryMonitorBrightness(brightness / 100.0f);
-
-static void WriteBrightness(int brightness) => Console.WriteLine($"{brightness}% {new string('|', brightness)}");
